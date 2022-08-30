@@ -5,7 +5,7 @@ const router = Router();
 
 
 //Declaro ruta para obtener el listado de todos los productos
-const productos = new Container("productos.txt")
+const productos = new Container("productos.json")
 
 
 // * Ruta del listado de productos

@@ -1,4 +1,5 @@
 const fs = require('fs');
+const moment = require('moment')
 const { builtinModules } = require('module');
 
 //Clase Container
@@ -16,7 +17,7 @@ class Container {
             }
             let products = await fs.promises.readFile(this.file, 'utf-8')
             if (!products) {
-                object = { id: 1, ...object }
+                object = { id: 1, timestamp: moment().format('DD/MM/YYYY, h:mm:ss'), ...object }
                 products = [object]
                 await fs.promises.writeFile(this.file, JSON.stringify(products))
                 return 1
@@ -24,7 +25,7 @@ class Container {
             else {
                 products = JSON.parse(products)
                 const idObject = products[products.length - 1].id + 1
-                object = { id: idObject, ...object }
+                object = { id: idObject, timestamp: moment().format('DD/MM/YYYY, h:mm:ss'), ...object }
                 products = [...products, object]
                 await fs.promises.writeFile(this.file, JSON.stringify(products))
                 return idObject
@@ -62,7 +63,7 @@ class Container {
     async updateById(id,newProduct){
             let arrayProducts = await this.getAll()
             arrayProducts = arrayProducts.map(product => {
-                if(product.id == id) return {id, ...newProduct}
+                if(product.id == id) return {id, timestamp: moment().format('DD/MM/YYYY, h:mm:ss'), ...newProduct}
                 return product
             })
             await fs.promises.writeFile(this.file, JSON.stringify(arrayProducts))

@@ -1,1 +1,0 @@
-[{"id":3,"title":"pantalon","price":50,"thumbnail":"www.google.com"},{"id":4,"titulo":"Sandalias","precio":"100","urlFoto":"www.bing.com"}]
