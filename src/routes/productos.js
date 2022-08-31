@@ -1,11 +1,10 @@
 const express = require('express');
 const { Router } = express;
-const Container = require('./container.js')
+const Container = require('../contenedores/ContenedorArchivo')
 const router = Router();
 
-
 //Declaro ruta para obtener el listado de todos los productos
-const productos = new Container("productos.json")
+const productos = new Container("src/utils/productos.json")
 
 
 // * Ruta del listado de productos

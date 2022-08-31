@@ -1,9 +1,10 @@
 const express = require ('express');
-const productos = require ('./productos')
-const carritos = require ('./carritos')
-const login = require ('./login')
+const productos = require ('./src/routes/productos')
+const carritos = require ('./src/routes/carritos')
+const login = require ('./src/routes/login')
+require('dotenv').config()
 
-const admin = false
+const admin = process.env.ADMIN
 
 const app = express();
 
